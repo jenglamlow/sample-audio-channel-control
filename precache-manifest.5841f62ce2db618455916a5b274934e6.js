@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/sample-audio-channel-control/static/css/main.77b51605.chunk.css"
   },
   {
-    "revision": "8ad70c4d5722884e71dceafb398113ba",
+    "revision": "829db3de5bf2a9855305a5158230597b",
     "url": "/sample-audio-channel-control/index.html"
   }
 ];
