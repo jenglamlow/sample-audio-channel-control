@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import sample from "./sample.mp4";
+// import multiTrack from "./multiTrack.mp4";
 
 export const Video = () => {
   const vRef = useRef(null);
@@ -22,25 +23,27 @@ export const Video = () => {
     const merger = audioCtx.createChannelMerger(6);
 
     if (vid) {
+      console.log(vid.audioTracks);
+
       const source = audioCtx.createMediaElementSource(vid);
       source.connect(volumeGainNode);
       volumeGainNode.connect(splitter);
 
       // Connect 6 splitter output to Channels Gain Node
-      splitter.connect(channelGainNodes[0], 0, 0);
-      splitter.connect(channelGainNodes[1], 1, 0);
-      splitter.connect(channelGainNodes[2], 2, 0);
-      splitter.connect(channelGainNodes[3], 3, 0);
-      splitter.connect(channelGainNodes[4], 4, 0);
-      splitter.connect(channelGainNodes[5], 5, 0);
+      splitter.connect(channelGainNodes[0], 0);
+      splitter.connect(channelGainNodes[1], 1);
+      splitter.connect(channelGainNodes[2], 2);
+      splitter.connect(channelGainNodes[3], 3);
+      splitter.connect(channelGainNodes[4], 4);
+      splitter.connect(channelGainNodes[5], 5);
 
       // Merge the 6 channels gain node back to single merger
       channelGainNodes[0].connect(merger, 0, 0);
-      channelGainNodes[1].connect(merger, 0, 0);
-      channelGainNodes[2].connect(merger, 0, 0);
-      channelGainNodes[3].connect(merger, 0, 0);
-      channelGainNodes[4].connect(merger, 0, 0);
-      channelGainNodes[5].connect(merger, 0, 0);
+      channelGainNodes[1].connect(merger, 0, 1);
+      channelGainNodes[2].connect(merger, 0, 2);
+      channelGainNodes[3].connect(merger, 0, 3);
+      channelGainNodes[4].connect(merger, 0, 4);
+      channelGainNodes[5].connect(merger, 0, 5);
 
       // Connecter merger to destination (speaker)
       merger.connect(audioCtx.destination);
