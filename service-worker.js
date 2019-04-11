@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/sample-audio-channel-control/precache-manifest.5841f62ce2db618455916a5b274934e6.js"
+  "/sample-audio-channel-control/precache-manifest.7da45f92b21b865271d44b6e68d3b949.js"
 );
 
 workbox.clientsClaim();
