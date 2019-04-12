@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import sample from "./sample.mp4";
-// import multiTrack from "./multiTrack.mp4";
 
 export const Video = () => {
   const vRef = useRef(null);
@@ -23,8 +22,6 @@ export const Video = () => {
     const merger = audioCtx.createChannelMerger(6);
 
     if (vid) {
-      console.log(vid.audioTracks);
-
       const source = audioCtx.createMediaElementSource(vid);
       source.connect(volumeGainNode);
       volumeGainNode.connect(splitter);
